@@ -69,7 +69,18 @@ Route::get('/fakultas', function(){
         return view('fakultas.index', compact('fakultas', 'kampus'));    
 });
 
+Route::get('/mahasiswa/insert',[MahasiswaController::class,'insert']);
+Route::get('/mahasiswa/update',[MahasiswaController::class,'update']);
+Route::get('/mahasiswa/delete',[MahasiswaController::class,'delete']);
+Route::get('/mahasiswa/select',[MahasiswaController::class,'select']);
 
+Route::get('/mahasiswa/insert-qb',[MahasiswaController::class,'insertQb']);
+Route::get('/mahasiswa/update-qb',[MahasiswaController::class,'updateQb']);
+Route::get('/mahasiswa/delete-qb',[MahasiswaController::class,'deleteQb']);
+Route::get('/mahasiswa/select-qb',[MahasiswaController::class,'selectQb']);
    
-
+Route::get('/mahasiswa/insert-elq',[MahasiswaController::class,'insertQb']);
+Route::get('/mahasiswa/update-elq',[MahasiswaController::class,'updateQb']);
+Route::get('/mahasiswa/delete-elq',[MahasiswaController::class,'deleteQb']);
+Route::get('/mahasiswa/select-elq',[MahasiswaController::class,'selectQb']);
 
