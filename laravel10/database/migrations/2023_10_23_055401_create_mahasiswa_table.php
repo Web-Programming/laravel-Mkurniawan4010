@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->timestamps();
-            $table->foreign('prodi_id')->after('alamat')->constrained()
-            ->onUpdate('cascade')->onDelete('cascade');
+           $table->unsignedBigInteger('prodi_id')->after('alamat');
+           $table->foreign('prodi_id')->references('id')->on('prodis')->onDelete('cascade')->onUpdate('cascade');
+
         });
 
 
