@@ -86,3 +86,21 @@ Route::get('/mahasiswa/delete-elq',[MahasiswaController::class,'deleteQb']);
 Route::get('/mahasiswa/select-elq',[MahasiswaController::class,'selectQb']);
 
 Route::get('/prodi/all-join-facade',[ProdiController::class, 'allJoinFacades']);
+
+Route::get('/prodi/all-join-elq',[ProdiController::class, 'allJoinElq']);
+Route::get('/mahasiswa/all-join-elq', [MahasiswaController::class, 'allJoinElq']);
+
+Route::get('/prodi/create',[ProdiController::class, 'create']);
+
+Route::get('prodi/store', [ProdiController::class, 'store']);
+
+Route::get('/prodi', [ProdiController::class,
+'index'])->name('prodi.index');
+
+Route::get('/prodi/{id}', [ProdiController::class,'show'
+])->name('prodi.show');
+
+Route::get('/prodi', [ProdiController::class,'index'])->name('prodi.index');
+Route::get('/prodi/{prodi}', [ProdiController::class, 'show'])->name('prodi.show');
+
+

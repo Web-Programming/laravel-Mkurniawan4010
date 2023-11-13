@@ -93,4 +93,16 @@ class MahasiswaController extends Controller
         //dump($Allmahasiswa);
         return view ('mahasiswa.index',['allmahasiswa '=> $mahasiswa,'kampus'=>$kampus]);
     }
+
+    public function prodi()
+    {
+        return$this->belongsTo('App\Model\Prodi');
+    }
+
+    public function allJoinElq()
+    {
+        $kampus = "Universitas Multidata palembang";
+        $mahasiswas = Mahasiswa::has('prodi')->get();
+        return view('mahasiswa.index', ['allmahasiswa' => $mahasiswas, 'kampus' => $kampus]);
+    }
 }

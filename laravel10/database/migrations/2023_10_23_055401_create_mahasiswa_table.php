@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,13 +14,15 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->char('npm',10)->unique();
+            $table->char('npm', 10)->unique();
             $table->string('nama');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->timestamps();
-           $table->unsignedBigInteger('prodi_id')->after('alamat');
-           $table->foreign('prodi_id')->references('id')->on('prodis')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('prodi_id')->after('alamat')->constrained()
+                ->onDelete('cascade')->onUpdate('cascade');
+
+
 
         });
 
@@ -38,11 +39,14 @@ return new class extends Migration
     {
 
 
-        Schema::table('mahasiswas',function(Blueprint $table){
-            $table->dropForeign('mahasiswa_prodi_id_foreign');
-            $table->renameColumn('nama','nama_mahasiswa');
-            $table->dropColumn('alamat','prodi_id');
+        Schema::table('mahasiswas', function (Blueprint $table) {
+
+            $table->renameColumn('nama', 'nama_mahasiswa');
+            $table->dropColumn('alamat' );
             $table->text('alamat')->after('tanggal_lahir');
+            $table->dropForeign('mahasiswas_prodi_id_foreign');
+            $table->dropColumn('prodi_id');
+
         });
 
 
