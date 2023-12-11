@@ -14,26 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
         Prodi::create(
             [
                 'nama' => 'Teknik Informatika'
             ]
-            );
-
-           Prodi::create(
+        );
+        Prodi::create(
             [
                 'nama' => 'Manajemen Informatika'
             ]
-            );
-            Prodi::create(
+        );
+        Prodi::create(
             [
                 'nama' => 'Sistem Informasi'
             ]
-            );
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        );
     }
 }

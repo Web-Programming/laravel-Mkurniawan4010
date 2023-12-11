@@ -1,21 +1,22 @@
 @extends('layout.master')
-@section('title', 'Halaman Mahasiswa')
+@section('title', 'Halaman Fakultas')
 
 @section('content')
 <h2>Mahasiswa</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>NPM</th><th>Nama Mahasiswa</th><th>Nama Prodi</th>
-            </tr>
-        </thead>
 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>NPM</th><th>Nama Mahasiswa</th><th>Nama Prodi</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach ($allmahasiswa as $item)
-        <tr>
-            <td>{{$item->npm}}</td><td>{{$item->nama_mahasiswa}}</td><td>{{$item->prodi->nama}}</td>
-        </tr>
-        @endforeach
+            <tr>
+                <td>{{ $item->npm }}</td><td>{{ $item->nama }}</td><td>{{ $item->prodi->nama }}</td>
+            </tr>
+        @endforeach 
     </tbody>
-     </table>
-    @endforeach
+</table>
+
+@endsection

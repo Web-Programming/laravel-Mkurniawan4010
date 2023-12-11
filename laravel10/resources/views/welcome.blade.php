@@ -16,7 +16,6 @@
         </style>
     </head>
     <body class="antialiased">
-       <h1>M. Kurniawan</h1>
-        
+        <h1>Verrino Adityya</h1>
     </body>
 </html>
